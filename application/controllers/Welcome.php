@@ -19,14 +19,12 @@ class Welcome extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index() {
-        $this->load->view('template/header');
-		$this->load->view('welcome_message');
-        $this->load->view('template/footer');
 
+		$this->load->view('welcome_message');
     }
 
-    public function view($i = '1'){
-	    echo $i;
+    public function view(){
+        $this->SP->addBodyElementFromView();
     }
 
 }
