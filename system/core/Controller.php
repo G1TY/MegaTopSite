@@ -79,6 +79,10 @@ class CI_Controller {
 		$this->load->initialize();
 		log_message('info', 'Controller Class Initialized');
         $this->load->model('M_shapingPage','SP');
+        $uri = $this->uri->segment(1);
+        if (empty($uri)) {
+            header('Location: /Main');
+        }
 	}
 
 	// --------------------------------------------------------------------

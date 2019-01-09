@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Music extends CI_Controller {
 
     /**
 	 * Index Page for this controller.
@@ -21,9 +21,15 @@ class Welcome extends CI_Controller {
 	public function index() {
 
 		$this->load->view('templates/header');
-		$this->load->view('welcome_message');
+		$this->load->view('musicIndex');
         $this->load->view('templates/footer');
-
     }
 
+    public function apiGetImg(){
+        $this->load->database();
+        $id = isset($_POST['id']) ? $_POST['id'] : 1;
+	    $query = "select pic from playlist where id = $id";
+	    $res = $this->db->query($query);
+	    echo json_encode($res->result_array());
+    }
 }

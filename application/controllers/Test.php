@@ -18,16 +18,10 @@ class Test extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index($lol = 'test') {
-        $this->load->view('template/header');
-        echo $lol;
-		$this->load->view('welcome_message');
-        $this->load->view('template/footer');
-
-    }
-
-    public function view($i = '1'){
-	    echo $i;
+	public function index() {
+        $this->load->view('templates/header');
+        $this->load->view('test');
+        $this->load->view('templates/footer');
     }
 
 }
